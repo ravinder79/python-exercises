@@ -4,7 +4,7 @@ Brother_bear = 5
 Hercules = 1
 
 total_cost = (The_little_mermaid + Brother_bear + Hercules)*3
-print(total_cost)
+print(f"We spent {total_cost} on movies")
 
 
 #Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays 400 dollars per hour, Amazon 380, and Facebook 350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
@@ -132,7 +132,7 @@ positive_numbers = [n for n in numbers if n>0]
 negative_numbers = [n for n in numbers if n<0] 
 
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
-two_or_more_numerals = [n for n in numbers if n>9 or n<(-9)]
+two_or_more_numerals = [n for n in numbers if len(str(abs(n))) >=2]]
 
 
 
@@ -141,7 +141,7 @@ numbers_squared = [n**2 for n in numbers]
 
 
 # Exercise 16 - Make a variable named odd_negative_numbers that contains only the numbers that are both odd and negative.
-odd_negative_numbers = [n for n in numbers if n % 2 == 1 and n<0]
+odd_negative_numbers = [n for n in numbers if n<0 and n % 2 != 0]
 
 # Exercise 17 - Make a variable named numbers_plus_5. In it, return a list containing each number plus five. 
 numbers_plus_5 = [n+5 for n in numbers]
@@ -162,8 +162,15 @@ primes = [n for n in numbers if is_prime(n) == True]
 #20 Python Data Structure Manipulation Exercises
 
 #How many students are there?
+len(students)
+
 #How many students prefer light coffee? For each type of coffee roast?
+ light_coffee_students = len([student for student in students if student['coffee_preference'] == 'light'])
+ medium_coffee_students = len([student for student in students if student['coffee_preference'] == 'medium'])
+ dark_coffee_students = len([student for student in students if student['coffee_preference'] == 'dark'])
 #How many types of each pet are there?
+
+
 #How many grades does each student have? Do they all have the same number of grades?
 #What is each student's grade average?
 #How many pets does each student have?

@@ -244,9 +244,35 @@ grades_ds_students = sum(grades_ds_students, [])   # flattened the list
 average_grade_ds_students = sum(grades_ds_students)/len(grades_ds_students)
 
 #What is the average grade range (i.e. highest grade - lowest grade) for dark coffee drinkers?
+dark_coffee_drinkers = [student for student in students if student['coffee_preference'] == 'dark']
+dark_coffee_drinker = dark_coffee_drinkers[0]
+grades_range_dark_coffee = [max(dark_coffee_drinker['grades'])-min(dark_coffee_drinker['grades']) for dark_coffee_drinker in dark_coffee_drinkers]
+average_grade_dark_coffee = sum(grades_range_dark_coffee)/len(grades_range_dark_coffee)
 
 
 #What is the average number of pets for medium coffee drinkers?
+medium_coffee_drinkers = [student for student in students if student['coffee_preference'] == 'medium'] 
+medium_coffee_drinker = medium_coffee_drinkers[0] 
+pets_of_medium_coffee_drinkers = [medium_coffee_drinker['pets'] for medium_coffee_drinker in medium_coffee_drinkers]
+pets_of_medium_coffee_drinkers = sum(pets_of_medium_coffee_drinkers, []) #flattened the list
+average_pets_of_medium_coffee_drinkers = len(pets_of_medium_coffee_drinkers)/len(medium_coffee_drinkers)
+
+
 #What is the most common type of pet for web development students?
+web_dev_students = [student for student in students if student['course'] == 'web development'] 
+web_dev_student = web_dev_students[0] 
+pets_of_web_dev_students = [web_dev_student['pets'] for web_dev_student in web_dev_students]
+pets_of_web_dev_students = sum(pets_of_web_dev_students,[])  #flattent the list
+
+pet_of_web_dev_students = pets_of_web_dev_students[0]
+pet_species_of_web_dev_students = [pet_of_web_dev_students['species'] for pet_of_web_dev_students in pets_of_web_dev_students] 
+pet_species_of_web_dev_students_dict = {x:pet_species_of_web_dev_students.count(x) for x in pet_species_of_web_dev_students} 
+
 #What is the average name length?
+names_list = [student['student'] for student in students] 
+name = names_list[0]
+name_length = [len(name) for name in names_list]
+average_name_length = sum(name_length)/len(name_length) 
+
 #What is the highest pet age for light coffee drinkers?
+

@@ -172,13 +172,43 @@ len(students)
 
 
 #How many grades does each student have? Do they all have the same number of grades?
+number_of_grades = [len(student['grades']) for student in students] 
+print(f" Number of grades for each students are {number_of_grades})")
+
 #What is each student's grade average?
+grades = [sum(student['grades']) for student in students]
+average_grades = [grade/len(student['grades']) for grade in grades]
+
+
 #How many pets does each student have?
+
+number_of_pets = [len(student['pets']) for student in students]
+
 #How many students are in web development? data science?
+
+number_of_students_webdev = len([student for student in students if student['course'] == "web development"]) 
+
 #What is the average number of pets for students in web development?
+num_of_pets = [len(student['pets']) for student in students if student['course'] == 'web development']    
+average_pets_for_webdev = sum(num_of_pets)/len(num_of_pets)
+
 #What is the average pet age for students in data science?
+num_of_pets_ds = [len(student['pets']) for student in students if student['course'] == 'data science']
+
+average_num_of_pets_ds = sum(num_of_pets_ds)/len(num_of_pets_ds)
+
 #What is most frequent coffee preference for data science students?
+light_count = [student['coffee_preference'] for student in students if student['course'] == 'data science'].count('light')
+medium_count = [student['coffee_preference'] for student in students if student['course'] == 'data science'].count('medium')
+dark_count = [student['coffee_preference'] for student in students if student['course'] == 'data science'].count('dark')
+
+
 #What is the least frequent coffee preference for web development students?
+coffee_preference_webdev = [student['coffee_preference'] for student in students if student['course'] == 'web development']
+coffee_preference_webdev_list = {x:coffee_preference_webdev.count(x) for x in coffee_preference_webdev}
+ min(coffee_preference_webdev_list , key=coffee_preference_webdev_list .get) 
+ 
+
 #What is the average grade for students with at least 2 pets?
 #How many students have 3 pets?
 #What is the average grade for students with 0 pets?

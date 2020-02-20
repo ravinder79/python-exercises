@@ -180,6 +180,7 @@ grades = [sum(student['grades']) for student in students]
 average_grades = [grade/len(student['grades']) for grade in grades]
 
 
+
 #How many pets does each student have?
 
 number_of_pets = [len(student['pets']) for student in students]
@@ -187,6 +188,7 @@ number_of_pets = [len(student['pets']) for student in students]
 #How many students are in web development? data science?
 
 number_of_students_webdev = len([student for student in students if student['course'] == "web development"]) 
+number_of_students_webdev = len([student for student in students if student['course'] == "data science"]) 
 
 #What is the average number of pets for students in web development?
 num_of_pets = [len(student['pets']) for student in students if student['course'] == 'web development']    
@@ -205,15 +207,45 @@ dark_count = [student['coffee_preference'] for student in students if student['c
 
 #What is the least frequent coffee preference for web development students?
 coffee_preference_webdev = [student['coffee_preference'] for student in students if student['course'] == 'web development']
-coffee_preference_webdev_list = {x:coffee_preference_webdev.count(x) for x in coffee_preference_webdev}
- min(coffee_preference_webdev_list , key=coffee_preference_webdev_list .get) 
- 
+coffee_preference_webdev_dict = {x:coffee_preference_webdev.count(x) for x in coffee_preference_webdev}
+ min(coffee_preference_webdev_dict , key=coffee_preference_webdev_dict .get) 
+
 
 #What is the average grade for students with at least 2 pets?
+students_with_atleast_two_pets = [student for student in students if len(student['pets']) >  1]
+grades_two_pets = [student_two_pets['grades'] for student_two_pets in students_with_atleast_two_pets]
+grades_two_pets = sum(grades_two_pets, [])   #flattend the list
+average_grade_two_pets = sum(grades_two_pets)/len(grades_two_pets)
+
+
+
 #How many students have 3 pets?
+students_with_three_pets = len([student for student in students if len(student['pets']) == 3])
+
 #What is the average grade for students with 0 pets?
+students_with_zero_pets = [student for student in students if len(student['pets']) == 0]
+student_with_zero_pets = students_with_zero_pets['grades']
+grades_students_with_zero_pets = [student_with_zero_pets['grades'] for student_with_zero_pets in students_with_zero_pets]
+grades_students_with_zero_pets = sum(grades_students_with_zero_pets, []) 
+average_grade_zero_pets = sum(grades_students_with_zero_pets)/len(grades_students_with_zero_pets) 
+
+
 #What is the average grade for web development students? data science students?
+web_dev_students = [student for student in students if student['course'] == 'web development'] 
+web_dev_student = web_dev_students[0]
+grades_web_dev = [web_dev_student['grades'] for web_dev_student in web_dev_students]
+grades_web_dev = sum(grades_web_dev, []) #flattened the list
+average_grades_webdev = sum(grades_web_dev)/len(grades_web_dev)
+
+ds_students = [student for student in students if student['course'] == 'data science']
+ds_student = ds_students[0] 
+grades_ds_students = [ds_student['grades'] for ds_student in ds_students]
+grades_ds_students = sum(grades_ds_students, [])   # flattened the list
+average_grade_ds_students = sum(grades_ds_students)/len(grades_ds_students)
+
 #What is the average grade range (i.e. highest grade - lowest grade) for dark coffee drinkers?
+
+
 #What is the average number of pets for medium coffee drinkers?
 #What is the most common type of pet for web development students?
 #What is the average name length?

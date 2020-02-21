@@ -219,6 +219,72 @@ while repeat == 'y':
 # C : 79 - 67
 # D : 66 - 60
 # F : 59 - 0
-# Bonus
 
+numerical_grade = input("Enter a numerical grade value between 0 and 100: ")
+prompt = 'y'
+while (prompt == 'y'):
+    if int(numerical_grade)>= 88:
+        print("Your grade is A")
+    elif int(numerical_grade)>= 80:
+            print("Your grade is B")
+    elif int(numerical_grade)>= 67:
+            print("Your grade is C")
+    elif int(numerical_grade)>= 60:
+            print("Your grade is D")
+    elif int(numerical_grade)>= 0:
+            print("Your grade is F")
+    prompt = input("Do you want to enter another numerical grade value? Enter y or n: ")
+    if prompt != 'y':
+        break
+    numerical_grade = input("Enter a numerical grade value between 0 and 100: ")
+# Bonus
 # Edit your grade ranges to include pluses and minuses (ex: 99-100 = A+).
+numerical_grade = input("Enter a numerical grade value between 0 and 100: ")
+prompt = 'y'
+while (prompt == 'y'):
+    if int(numerical_grade)>= 95:
+        print("Your grade is A+")
+    elif int(numerical_grade)>= 88:
+        print("Your grade is A")
+    elif int(numerical_grade)>= 84:
+            print("Your grade is B+")
+    elif int(numerical_grade)>= 80:
+            print("Your grade is B")
+    elif int(numerical_grade)>= 74:
+            print("Your grade is C+")
+    elif int(numerical_grade)>= 67:
+            print("Your grade is C")
+    elif int(numerical_grade)>= 60:
+            print("Your grade is D")
+    elif int(numerical_grade)>= 0:
+            print("Your grade is F")
+    prompt = input("Do you want to enter another numerical grade value? Enter y or n: ")
+    if prompt != 'y':
+        break
+    numerical_grade = input("Enter a numerical grade value between 0 and 100: ")
+
+# #Create a list of dictionaries where each dictionary represents a book that you have read.
+#  Each dictionary in the list should have the keys title, author, and genre. Loop through the list and print out 
+# information about each book.
+
+# Prompt the user to enter a genre, then loop through your books list and print 
+# out the titles of all the books in that genre.
+
+books = [{'title': 'goosebumps', 'author': 'unknown', 'genre': 'horror'},
+        {'title': 'something deeply hidden', 'author': 'Sean Carrol', 'genre': 'science'},
+        {'title': 'The Big Picture', 'author': 'Sean Carrol', 'genre': 'science'}]
+
+
+#Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
+books = [{'title': 'Goosebumps', 'author': 'unknown', 'genre': 'horror'},
+        {'title': 'Something Deeply Hidden', 'author': 'Sean Carrol', 'genre': 'science'},
+        {'title': 'The Big Picture', 'author': 'Sean Carrol', 'genre': 'science'}]
+book = books[0]
+for book in books:
+    print(f"Title = {book['title']}, author = {book['author']}, genre = {book['genre']}")
+        
+prompt = input("\nChoose a genre: science or horror: ")
+for book in books:
+          if book['genre'] == prompt:
+              print(f" Title = {book['title']}") 
+

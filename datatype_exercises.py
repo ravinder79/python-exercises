@@ -160,6 +160,126 @@ def is_prime(x):
 primes = [n for n in numbers if is_prime(n) == True]
 
 #20 Python Data Structure Manipulation Exercises
+students = students = [
+    {
+"id": "100001",
+"student": "Ada Lovelace",
+"coffee_preference": "light",
+"course": "web development",
+"grades": [70, 91, 82, 71],
+"pets": [{"species": "horse", "age": 8}],
+    },
+    {
+"id": "100002",
+"student": "Thomas Bayes",
+"coffee_preference": "medium",
+"course": "data science",
+"grades": [75, 73, 86, 100],
+"pets": [],
+    },
+    {
+"id": "100003",
+"student": "Marie Curie",
+"coffee_preference": "light",
+"course": "web development",
+"grades": [70, 89, 69, 65],
+"pets": [{"species": "cat", "age": 0}],
+    },
+    {
+"id": "100004",
+"student": "Grace Hopper",
+"coffee_preference": "dark",
+"course": "data science",
+"grades": [73, 66, 83, 92],
+"pets": [{"species": "dog", "age": 4}, {"species": "cat", "age": 4}],
+    },
+    {
+"id": "100005",
+"student": "Alan Turing",
+"coffee_preference": "dark",
+"course": "web development",
+"grades": [78, 98, 85, 65],
+"pets": [
+            {"species": "horse", "age": 6},
+            {"species": "horse", "age": 7},
+            {"species": "dog", "age": 5},
+        ],
+    },
+    {
+"id": "100006",
+"student": "Rosalind Franklin",
+"coffee_preference": "dark",
+"course": "data science",
+"grades": [76, 70, 96, 81],
+"pets": [],
+    },
+    {
+"id": "100007",
+"student": "Elizabeth Blackwell",
+"coffee_preference": "dark",
+"course": "web development",
+"grades": [69, 94, 89, 86],
+"pets": [{"species": "cat", "age": 10}],
+    },
+    {
+"id": "100008",
+"student": "Rene Descartes",
+"coffee_preference": "medium",
+"course": "data science",
+"grades": [87, 79, 90, 99],
+"pets": [{"species": "cat", "age": 10}, {"species": "cat", "age": 8}],
+    },
+    {
+"id": "100009",
+"student": "Ahmed Zewail",
+"coffee_preference": "medium",
+"course": "data science",
+"grades": [74, 99, 93, 89],
+"pets": [{"species": "cat", "age": 0}, {"species": "cat", "age": 0}],
+    },
+    {
+"id": "100010",
+"student": "Chien-Shiung Wu",
+"coffee_preference": "medium",
+"course": "web development",
+"grades": [82, 92, 91, 65],
+"pets": [{"species": "cat", "age": 8}],
+    },
+    {
+"id": "100011",
+"student": "William Sanford Nye",
+"coffee_preference": "dark",
+"course": "data science",
+"grades": [70, 92, 65, 99],
+"pets": [{"species": "cat", "age": 8}, {"species": "cat", "age": 5}],
+    },
+    {
+"id": "100012",
+"student": "Carl Sagan",
+"coffee_preference": "medium",
+"course": "data science",
+"grades": [100, 86, 91, 87],
+"pets": [{"species": "cat", "age": 10}],
+    },
+    {
+"id": "100013",
+"student": "Jane Goodall",
+"coffee_preference": "light",
+"course": "web development",
+"grades": [80, 70, 68, 98],
+"pets": [{"species": "horse", "age": 4}],
+    },
+    {
+"id": "100014",
+"student": "Richard Feynman",
+"coffee_preference": "medium",
+"course": "web development",
+"grades": [73, 99, 86, 98],
+"pets": [{"species": "dog", "age": 6}],
+    },
+]
+
+student = students[0]
 
 #How many students are there?
 len(students)
@@ -168,36 +288,45 @@ len(students)
  light_coffee_students = len([student for student in students if student['coffee_preference'] == 'light'])
  medium_coffee_students = len([student for student in students if student['coffee_preference'] == 'medium'])
  dark_coffee_students = len([student for student in students if student['coffee_preference'] == 'dark'])
+
+
 #How many types of each pet are there?
+pets = [student['pets'] for student in students] 
+pets = sum(pets, []) #flatten the list
+pet = pets[0]
+pet_species = [pet['species'] for pet in pets] 
+pet_species_dict = {x:pet_species.count(x) for x in pet_species} # Converted list to dictionary
+total_pet_species = len(pet_species_dict)  # length of new dict is total number of species
 
 
 #How many grades does each student have? Do they all have the same number of grades?
 number_of_grades = [len(student['grades']) for student in students] 
 print(f" Number of grades for each students are {number_of_grades})")
 
+
 #What is each student's grade average?
 grades = [sum(student['grades']) for student in students]
 average_grades = [grade/len(student['grades']) for grade in grades]
 
 
-
 #How many pets does each student have?
-
 number_of_pets = [len(student['pets']) for student in students]
 
-#How many students are in web development? data science?
 
+#How many students are in web development? data science?
 number_of_students_webdev = len([student for student in students if student['course'] == "web development"]) 
 number_of_students_webdev = len([student for student in students if student['course'] == "data science"]) 
+
 
 #What is the average number of pets for students in web development?
 num_of_pets = [len(student['pets']) for student in students if student['course'] == 'web development']    
 average_pets_for_webdev = sum(num_of_pets)/len(num_of_pets)
 
+
 #What is the average pet age for students in data science?
 num_of_pets_ds = [len(student['pets']) for student in students if student['course'] == 'data science']
-
 average_num_of_pets_ds = sum(num_of_pets_ds)/len(num_of_pets_ds)
+
 
 #What is most frequent coffee preference for data science students?
 light_count = [student['coffee_preference'] for student in students if student['course'] == 'data science'].count('light')
@@ -218,9 +347,9 @@ grades_two_pets = sum(grades_two_pets, [])   #flattend the list
 average_grade_two_pets = sum(grades_two_pets)/len(grades_two_pets)
 
 
-
 #How many students have 3 pets?
 students_with_three_pets = len([student for student in students if len(student['pets']) == 3])
+
 
 #What is the average grade for students with 0 pets?
 students_with_zero_pets = [student for student in students if len(student['pets']) == 0]
@@ -249,7 +378,7 @@ dark_coffee_drinker = dark_coffee_drinkers[0]
 grades_range_dark_coffee = [max(dark_coffee_drinker['grades'])-min(dark_coffee_drinker['grades']) for dark_coffee_drinker in dark_coffee_drinkers]
 average_grade_dark_coffee = sum(grades_range_dark_coffee)/len(grades_range_dark_coffee)
 
-
+_
 #What is the average number of pets for medium coffee drinkers?
 medium_coffee_drinkers = [student for student in students if student['coffee_preference'] == 'medium'] 
 medium_coffee_drinker = medium_coffee_drinkers[0] 
@@ -275,4 +404,10 @@ name_length = [len(name) for name in names_list]
 average_name_length = sum(name_length)/len(name_length) 
 
 #What is the highest pet age for light coffee drinkers?
-
+light_coffee_students = [student for student in students if student['coffee_preference'] == 'light'] 
+light_coffee_student = light_coffee_students[0]
+pets_light_coffee_student = [light_coffee_student['pets'] for light_coffee_student in light_coffee_students]
+pet_light_coffee_student = pets_light_coffee_student[0]
+pets_light_coffee_student = sum(pets_light_coffee_student, []) 
+age_pet_light_coffee_student = [pet_light_coffee_student['age'] for pet_light_coffee_student in pets_light_coffee_student]
+max(age_pet_light_coffee_student)

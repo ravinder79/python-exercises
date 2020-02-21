@@ -4,13 +4,18 @@ day = input("Enter the day of a week: ")
 if day.lower().strip() == 'monday':
     print("Today is Monday!")
 else:
-    print("Today is not Monday!")
+    print(f"Today is not Monday! Today is {day}")
 
 
 #prompt the user for a day of the week, print out whether the day is a weekday or a weekend
 day = input("Enter a day of the week: ")
+
+while (day.lower() not in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday','saturday', 'sunday']):
+    day = input("Enter a day of the week: ")
+    
 if (day.lower() == 'sunday' or day.lower() == 'saturday'):
     print(f"{day} is a weekend")
+    
 else:
     print(f"{day} is a weekday")
 
@@ -76,7 +81,6 @@ while ((i * i) < 1000000):
 
 
 #For Loops
-
 #Write some code that prompts the user for a number, then shows a multiplication table up through 10 for that number.
 
 num = input(" Enter a number: ")
@@ -108,8 +112,12 @@ for i in range (1,10):
 
 num = input("Enter a odd number between 1 and 50: ")
 
-while (num.isdigit() and int(num) <1 or int(num) >50 or int(num) % 2 ==0):
-    num = input("Enter a valid input: ")
+while(num.isdigit()== False):
+    num = input("Not a valid input. Enter a odd number between 1 and 50:  : ")
+
+       
+while (int(num) <1 or int(num) >50 or int(num) % 2 ==0):
+    num = input("Not a valid input. Enter a odd number between 1 and 50:  :  ")
     if (num.isdigit() and int(num) >1 and int(num) < 50 and (int(num) % 2 == 1)):
         break
         
@@ -126,25 +134,20 @@ for i in range(1,51):
 
 num = input("Enter a positive number: ")
 
-while (num.isdigit() and int(num)) <= 0:
-    num = input("Enter a positive number: ")
-    if (num.isdigit() and int(num)>0):
-        break
+while (num.isdigit() == False):
+       num = input("Not a valid input. Enter a positive number: ")
     
-
 for i in range(0, int(num)+1):
     print(i)
+
 
 #Write a program that prompts the user for a positive integer.#
 # Next write a loop that prints out the numbers from the number the user entered down to 1.
 
 num = input("Enter a positive number greater than 1: ")
 
-
-while (num.isdigit()== False or int(num) <= 1):
-    num = input("Enter a positive number greater than 1: ")
-    if (num.isdigit() and int(num) > 1):
-        break
+while (num.isdigit() == False):
+       num = input("Not a valid input. Enter a positive number: ")
 
 for i in range(1, int(num)+1):
     print(int(num)+1-i)
@@ -156,32 +159,18 @@ for i in range(1, int(num)+1):
 # Developed by Imran Ghory, the test is designed to test basic looping and conditional logic skills.
 
 # Write a program that prints the numbers from 1 to 100.
-
-for i in range(1,101):
-    print(i)
-
-
 # For multiples of three print "Fizz" instead of the number
-for i in range(1,101):
-    if i % 3 == 0:
-        print("fizz")
-    else:
-         print(i)
-
-
 # For the multiples of five print "Buzz".
-for i in range(1,101):
-    if i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
-
-
 # For numbers which are multiples of both three and five print "FizzBuzz".
+
 
 for i in range(1,101):
     if (i % 5 == 0 and i % 3 ==0):
         print("fizzbuzz")
+        if i % 5 == 0:
+        print("Buzz")
+        if i % 3 == 0:
+        print("fizz")
     else:
         print(i)
 
@@ -195,14 +184,20 @@ for i in range(1,101):
 
 num = input("What number would you like to go up to: ")
 repeat = 'y'
-while repeat == 'y':
-    print("Here is your table!"" \n\nnumber | squared | cubed\n------ | ------- | -----")
+no= 'number'
+sq = 'squared'
+cu = 'cubed'
+while repeat == 'y' or repeat == 'yes':
+    print(f"\nHere is your table!\n")
+    print(f"{no:^10}|{sq:^10}|{cu:^10}")
+    print(f"{'-' :-^10}|{'-' :-^10}|{'-' :-^10}")
     for i in range(1, int(num)+1):
-        print(f"{i}      | {i*i}       | {i*i*i}")
+        print(f"{i:^10}|{i*i:^10}|{i*i*i:^10}")
 
-    repeat = input("Do you want to continue? Type y for yes and n for no")
+    repeat = input("\nDo you want to continue? Type y for yes and n for no: ")
+    if (repeat == 'n' or repeat == "N"):
+          break
     num = input("What number would you like to go up to: ")
-
 
 
 #Convert given number grades into letter grades.
@@ -276,7 +271,7 @@ books = [{'title': 'goosebumps', 'author': 'unknown', 'genre': 'horror'},
 
 
 #Prompt the user to enter a genre, then loop through your books list and print out the titles of all the books in that genre.
-books = [{'title': 'Goosebumps', 'author': 'unknown', 'genre': 'horror'},
+books = [{'title': 'Goosebumps', 'author': 'Unknown', 'genre': 'horror'},
         {'title': 'Something Deeply Hidden', 'author': 'Sean Carrol', 'genre': 'science'},
         {'title': 'The Big Picture', 'author': 'Sean Carrol', 'genre': 'science'}]
 book = books[0]
@@ -284,7 +279,11 @@ for book in books:
     print(f"Title = {book['title']}, author = {book['author']}, genre = {book['genre']}")
         
 prompt = input("\nChoose a genre: science or horror: ")
-for book in books:
-          if book['genre'] == prompt:
-              print(f" Title = {book['title']}") 
+if book['genre'] != prompt.lower():
+          print( "Sorry no matching books for that genre")
+else:
+          for book in books:
+              if (book['genre'] == prompt.lower()):
+                print(f" Title = {book['title']}") 
+          
 

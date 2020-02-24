@@ -54,7 +54,7 @@ def calculate_tip(tip_percent, total_bill):
 In [94]:
 
 def apply_discount(original_price, discount_percentage):
-    price_after_discount = (100 - discount_percentage) * discount_percentage
+    price_after_discount = (1 - discount_percentage) * original_percentage
     return '%.2f'%price_after_discount
 
 
@@ -88,10 +88,10 @@ def letter_grade(number):
 def remove_vowels(str):
     new_word =''
     for char in str:
-        if char.lower() in 'aeiou':
-            char = ''
-        else:
+        if char.lower() not in 'aeiou':
+           
             new_word = new_word+char
+       
     return new_word
 
 
@@ -109,18 +109,21 @@ def normalize_name(x):
     new_word = ''
     while not (x[0].isalpha() or x[0] == '_'):  # this block removes any charcters from front of input except '_' and alphabets
         x = x[1:]
-    
-    if x[-1] == ' ':   # this block removes any trailing white spaces
-        x = x[:-2]
-​
+    print(x)
+   # x = x.strip()   # this block removes any trailing white spaces
+   
+
     for char in x:       # this block removes any non-alphanumeric characters and replaces space with '_'
         if char == ' ':
             new_word = new_word + '_'
+        elif char == "_":
+            new_word = new_word + char
         elif not char.isalnum():
             new_word = new_word
         else:
             new_word = new_word + char
     return new_word.lower()
+    
 ​
 
 

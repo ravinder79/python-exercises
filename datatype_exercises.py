@@ -48,23 +48,14 @@ password = 'notastrongpassword'
 password_char = len(password) >= 5
 print(password)
 
+#the username must be no more than 20 characters                                                                                      
+username_len = len(username)<=20                                                                                                      
 
-In [4]: #the username must be no more than 20 characters                                                                                      
+#the password must not be the same as the username                                                                                    
+same_u_p = username == password     
 
-In [5]: username_len = len(username)<=20                                                                                                      
-
-
-
-In [7]: #the password must not be the same as the username                                                                                    
-
-In [8]: same_u_p = username == password                                                                                                       
-
-
-
-In [10]: #bonus neither the username or password can start or end with whitespace                                                             
-
-
- whitespace = username[0] == ' ' or password[0] == ' '                                                                                
+#bonus neither the username or password can start or end with whitespace                                                             
+whitespace = username[0] == ' ' or password[0] == ' '                                                                                
 
 
 # 17 list comprehension problems in python
@@ -73,7 +64,7 @@ fruits = ['mango', 'kiwi', 'strawberry', 'guava', 'pineapple', 'mandarin orange'
 
 numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 13, 17, 19, 23, 256, -8, -4, -2, 5, -9]
 
-## Exercise 1 - rewrite the above example code using list comprehension syntax. Make a variable named uppercased_fruits to hold the output of the list comprehension. Output should be ['MANGO', 'KIWI', etc...]
+# Exercise 1 - rewrite the above example code using list comprehension syntax. Make a variable named uppercased_fruits to hold the output of the list comprehension. Output should be ['MANGO', 'KIWI', etc...]
 
 uppercased_fruits = [fruit.upper() for fruit in fruits] 
 
@@ -84,13 +75,12 @@ uppercased_fruits = [fruit.upper() for fruit in fruits]
 capitalized_fruits = [fruit.capitalize() for fruit in fruits]
 
 ## Exercise 3 - Use a list comprehension to make a variable named fruits_with_more_than_two_vowels. Hint: You'll need a way to check if something is a vowel.
- def has_vowels_count(x): 
-     ...:     count = 0 
-     ...:     for char in x: 
-     ...:         if char.lower() in 'aeiou': 
-     ...:             count = count+1 
-     ...:      
-     ...:     return count 
+def has_vowels_count(x): 
+    count = 0 
+    for char in x:
+        if char.lower() in 'aeiou':
+            count = count+1 
+    return count 
 
 
 fruits_with_more_than_two_vowels = [fruit for fruit in fruits if has_vowels_count(fruit) > 2]
@@ -132,7 +122,7 @@ positive_numbers = [n for n in numbers if n>0]
 negative_numbers = [n for n in numbers if n<0] 
 
 # Exercise 14 - use a list comprehension w/ a conditional in order to produce a list of numbers with 2 or more numerals
-two_or_more_numerals = [n for n in numbers if len(str(abs(n))) >=2]]
+two_or_more_numerals = [n for n in numbers if len(str(abs(n))) >=2]
 
 
 
@@ -285,9 +275,9 @@ student = students[0]
 len(students)
 
 #How many students prefer light coffee? For each type of coffee roast?
- light_coffee_students = len([student for student in students if student['coffee_preference'] == 'light'])
- medium_coffee_students = len([student for student in students if student['coffee_preference'] == 'medium'])
- dark_coffee_students = len([student for student in students if student['coffee_preference'] == 'dark'])
+light_coffee_students = len([student for student in students if student['coffee_preference'] == 'light'])
+medium_coffee_students = len([student for student in students if student['coffee_preference'] == 'medium'])
+dark_coffee_students = len([student for student in students if student['coffee_preference'] == 'dark'])
 
 
 #How many types of each pet are there?
@@ -337,7 +327,7 @@ dark_count = [student['coffee_preference'] for student in students if student['c
 #What is the least frequent coffee preference for web development students?
 coffee_preference_webdev = [student['coffee_preference'] for student in students if student['course'] == 'web development']
 coffee_preference_webdev_dict = {x:coffee_preference_webdev.count(x) for x in coffee_preference_webdev}
- min(coffee_preference_webdev_dict , key=coffee_preference_webdev_dict .get) 
+min(coffee_preference_webdev_dict , key=coffee_preference_webdev_dict .get) 
 
 
 #What is the average grade for students with at least 2 pets?
@@ -353,7 +343,7 @@ students_with_three_pets = len([student for student in students if len(student['
 
 #What is the average grade for students with 0 pets?
 students_with_zero_pets = [student for student in students if len(student['pets']) == 0]
-student_with_zero_pets = students_with_zero_pets['grades']
+student_with_zero_pets = students_with_zero_pets[0]
 grades_students_with_zero_pets = [student_with_zero_pets['grades'] for student_with_zero_pets in students_with_zero_pets]
 grades_students_with_zero_pets = sum(grades_students_with_zero_pets, []) 
 average_grade_zero_pets = sum(grades_students_with_zero_pets)/len(grades_students_with_zero_pets) 
@@ -378,7 +368,6 @@ dark_coffee_drinker = dark_coffee_drinkers[0]
 grades_range_dark_coffee = [max(dark_coffee_drinker['grades'])-min(dark_coffee_drinker['grades']) for dark_coffee_drinker in dark_coffee_drinkers]
 average_grade_dark_coffee = sum(grades_range_dark_coffee)/len(grades_range_dark_coffee)
 
-_
 #What is the average number of pets for medium coffee drinkers?
 medium_coffee_drinkers = [student for student in students if student['coffee_preference'] == 'medium'] 
 medium_coffee_drinker = medium_coffee_drinkers[0] 

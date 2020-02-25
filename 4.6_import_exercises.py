@@ -99,3 +99,19 @@ print(least_fav_fruit)
 
 
 #Total number of unread messages for all users
+def message_count(str):
+    num = ''
+    count = 0   
+    for i in str:
+        if i in '1234567890':
+            num = num + i
+        
+    count = int(num)
+    return count
+
+
+total_messages = 0
+for i in range(0, len(profiles)):
+    total_messages = total_messages + message_count(profiles[i]['greeting'])
+print(f" total messages = {total_messages}")
+    

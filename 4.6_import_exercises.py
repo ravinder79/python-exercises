@@ -7,23 +7,30 @@ functions.letter_grade(99)
 
 from functions import remove_vowels  
 remove_vowels('Monday')
+print(remove_vowels('Monday'))
 
 #use from and give the function a different name
 
 from functions import remove_vowels as rv   
 
 rv('Monday')
+print(rv('Monday'))
 
 #How many different ways can you combine the letters from "abc" with the numbers 1, 2, and 3?
 import itertools
-
-for i in itertools.product('abc', '123'):
-    print(i)
+print("\nCombine letters from abc with numbers 1,2 3")
+list(itertools.product('abc', '123'))
+print(list(itertools.product('abc', '123')))
+# for i in itertools.product('abc', '123'):
+#     print(i)
 
 #How many different ways can you combine two of the letters from "abcd"?
 import itertools
-for i in itertools.combinations('abcd', 2):
-    print(i)
+print("\nCombine two letters from abcd")
+l = list(itertools.combinations('abcd', 2))
+print(l)
+# for i in itertools.combinations('abcd', 2):
+#     print(i)
 
 import json
 
@@ -37,8 +44,7 @@ print(f"Total number of users {users}")
  
 #Number of active users
 user = profiles[0]
-
-active_users = len([user for user in profiles if user["isActive"] == True])
+active_users = len([user for user in profiles if user["isActive"]])
 print(f" Number of active users: {active_users}")
 
 #Number of inactive users
@@ -53,13 +59,13 @@ for i in balance:
     i = i[1:]
     i = i.replace(',', '')
     total = total + float(i)
-print(f" Grand total of balances: $ {total}")
+print(f" Grand total of balances: $ {'%.2f'%total}")
 
 
 #Average balance per user
 
 average_balance = total/users
-print(f" Average balance: {average_balance}")
+print(f" Average balance: {'%.2f'%average_balance}")
 
 #User with the lowest balance
 low_balance = profiles[-1]['balance']
@@ -70,6 +76,8 @@ for i in range(0, len(profiles)):
         low_user = profiles[i]['name']
 
 print(f" User with lowest balance: {low_user}, balance:  {low_balance}") 
+
+#min(profiles, key = balance)['name']
 
 #User with the highest balance
 

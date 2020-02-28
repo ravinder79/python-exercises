@@ -122,4 +122,3 @@ total_messages = 0
 for i in range(0, len(profiles)):
     total_messages = total_messages + message_count(profiles[i]['greeting'])
 print(f" total unread messages = {total_messages}")
-    

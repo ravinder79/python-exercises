@@ -24,3 +24,16 @@ def get_Middle(s):
             return middle
     else:
           return s
+
+# Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value
+#  next to each other and preserving the original order of elements.
+
+def unique_in_order(s):
+    if len(s)>1:
+        list = [s[0]]
+        for i in range(1,len(s)):
+            if s[i] != s[i-1]:
+                list.append(s[i])
+        return list
+    else:
+        return s

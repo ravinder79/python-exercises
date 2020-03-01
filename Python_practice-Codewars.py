@@ -45,6 +45,7 @@ def unique_in_order(s):
 # accum("abcd") -> "A-Bb-Ccc-Dddd"
 # accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 # accum("cwAt") -> "C-Ww-Aaa-Tttt"
+
 def accum(s):
     list = []
     for i in range(0, len(s)):
@@ -53,3 +54,22 @@ def accum(s):
         list[i] = list[i].capitalize()
     
     return '-'.join(list)
+# If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+# Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+# Note: If the number is a multiple of both 3 and 5, only count it once.
+
+def solution(num):
+    if num > 3:
+        list = []
+        for i in range(2, num):
+            if i % 3 == 0 or i % 5 == 0:
+                list.append(i)
+                
+        l = list[0]
+        return sum([l for l in list])
+        return list
+    elif num == 3:
+            return 3
+    else:
+        return 0
+    

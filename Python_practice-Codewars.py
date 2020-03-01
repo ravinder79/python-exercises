@@ -37,3 +37,19 @@ def unique_in_order(s):
         return list
     else:
         return s
+
+# This time no story, no theory. The examples below show you how to write function accum:
+
+# Examples:
+
+# accum("abcd") -> "A-Bb-Ccc-Dddd"
+# accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+# accum("cwAt") -> "C-Ww-Aaa-Tttt"
+def accum(s):
+    list = []
+    for i in range(0, len(s)):
+        list.append(s[i]*(i+1))
+    for i in range(0, len(list)):
+        list[i] = list[i].capitalize()
+    
+    return '-'.join(list)

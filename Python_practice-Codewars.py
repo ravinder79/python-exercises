@@ -83,3 +83,30 @@ def solution(num):
 def dig_pow(n, p):
     # your code
     return -1
+
+
+# Make a program that filters a list of strings and returns a list with only your friends name in it.
+
+# If a name has exactly 4 letters in it, you can be sure that it has to be a friend of yours! Otherwise, you can be sure he's not...
+
+# Ex: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+# i.e.
+
+def friend(x):
+    list = []
+    for i in range(0, len(x)):
+        if len(x[i]) == 4:
+            list.append(x[i])
+    return list
+
+    # Implement a method that accepts 3 integer values a, b, c. 
+    # The method should return true if a triangle can be built with the sides of 
+    # given length and false in any other case.
+
+    def is_triangle(a, b, c):
+    if a + b > c and b + c > a and c + a > b:
+        return True
+    else:
+        return False
+ 

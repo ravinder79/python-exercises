@@ -236,7 +236,7 @@ print(b.reshape(1, 6))
 
 # Exercise 12 - reshape the array b to be a list of 6 lists, each containing only 1 number (6 x 1)
 b.reshape(-1,6)
-print(b.reshape(,1))
+print(b.reshape(-1,1))
 
 
 ## Setup 3
@@ -246,20 +246,43 @@ c = [
     [7, 8, 9]
 ]
 
+c = np.array(c)
+
 # HINT, you'll first need to make sure that the "c" variable is a numpy array prior to using numpy array methods.
 # Exercise 1 - Find the min, max, sum, and product of c.
+min_of_c = c.min()
+max_of_c = c.max()
+sum_of_c = c.sum()
+prod_of_c = c.prod()
 
+print(min_of_c )
+print(max_of_c)
+print(sum_of_c)
+print(prod_of_c)
 # Exercise 2 - Determine the standard deviation of c.
 
+std_dev_c = c.std()
+
+print(std_dev_c)
 # Exercise 3 - Determine the variance of c.
 
+variance_c = c.var()
+print(variance_c)
+
 # Exercise 4 - Print out the shape of the array c
+print(c.shape)
 
 # Exercise 5 - Transpose c and print out transposed result.
+c_transpose = c.T
+print(c_transpose)
 
 # Exercise 6 - Get the dot product of the array c with c. 
-
+dot_product_c = np.dot(c, c)
+print(dot_product_c)
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
 
+sum_prod_c = np.multiply(c, c.T).sum()
+print(sum_prod_c)
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
-
+c_times_c = np.multiply(c, c.T).prod()
+print(c_times_c)

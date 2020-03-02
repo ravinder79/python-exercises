@@ -108,5 +108,15 @@ def friend(x):
     if a + b > c and b + c > a and c + a > b:
         return True
     else:
-        return False
+         return False
  
+#  Write an algorithm that takes an array and moves all of the zeros to the end, 
+# preserving the order of the other elements.
+
+# move_zeros([false,1,0,1
+def move_zeros(array):
+    for i in array:
+        if i == 0 or i.isalpha():
+            del array[i]
+            array.append(i)
+    return array

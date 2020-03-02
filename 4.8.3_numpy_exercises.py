@@ -1,6 +1,6 @@
 import numpy as np
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
-
+import math
 # How many negative numbers are there?
 
 
@@ -31,10 +31,19 @@ mask.sum()
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
  
 a = a ** 2
+
+print(a.mean())
+print(a.std())
+
+
+# A common statistical operation on a dataset is centering.
+#  This means to adjust the data such that the center of the data is at 0.
+#  This is done by subtracting the mean from each data point. Center the data set.
+
+a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
+
+mean = a.mean()
+a = a - mean
 print(a)
 
-a.mean()
-a.stddev()
 
-
-# # A common statistical operation on a dataset is centering. This means to adjust the data such that the center of the data is at 0. This is done by subtracting the mean from each data point. Center the data set.

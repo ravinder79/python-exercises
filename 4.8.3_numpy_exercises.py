@@ -286,3 +286,42 @@ print(sum_prod_c)
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
 c_times_c = np.multiply(c, c.T).prod()
 print(c_times_c)
+
+## Setup 4
+d = [
+    [90, 30, 45, 0, 120, 180],
+    [45, -90, -30, 270, 90, 0],
+    [60, 45, -45, 90, -45, 180]
+]
+d = np.array(d)
+
+# Exercise 1 - Find the sine of all the numbers in d
+np.sin(d)
+print(np.sin(d))
+
+# Exercise 2 - Find the cosine of all the numbers in d
+np.cos(d)
+print(np.cos(d))
+# Exercise 3 - Find the tangent of all the numbers in d
+np.tan(d)
+print(np.tan(d))
+# Exercise 4 - Find all the negative numbers in d
+d[d < 0]
+
+# Exercise 5 - Find all the positive numbers in d
+d[d > 0]
+
+# Exercise 6 - Return an array of only the unique numbers in d.
+np.unique(d)
+
+# Exercise 7 - Determine how many unique numbers there are in d.
+np.unique(d).size
+
+# Exercise 8 - Print out the shape of d.
+d.shape
+
+# Exercise 9 - Transpose and then print out the shape of d.
+d.T.shape
+
+# Exercise 10 - Reshape d into an array of 9 x 2
+d.reshape(9, 2)

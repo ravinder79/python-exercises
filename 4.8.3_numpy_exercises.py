@@ -41,9 +41,16 @@ print(a.std())
 #  This is done by subtracting the mean from each data point. Center the data set.
 
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
-
+stddev = a.std()
 mean = a.mean()
 a = a - mean
 print(a)
 
 
+# Calculate the z-score for each data point. Recall that the z-score is given by:
+
+
+# Z=x−μ/σ
+
+z_scores = a/stddev
+print(z_scores)
